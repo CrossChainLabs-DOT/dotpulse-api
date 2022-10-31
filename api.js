@@ -58,11 +58,16 @@ const recent_commits = async function (req, res, next) {
     await  get('*', 'recent_commits_view', 'ORDER BY commit_date DESC', req, res, next, 'recent_commits', false);
 };
 
+const repositories = async function (req, res, next) {
+    await get('SELECT * FROM repositories_view ORDER BY month', res, 'repositories');
+};
+
 
 module.exports = {
     overview,
     top_contributors,
     commits,
     active_contributors,
-    recent_commits
+    recent_commits,
+    repositories
 }

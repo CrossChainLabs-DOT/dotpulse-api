@@ -5,7 +5,8 @@ const {
     top_contributors,
     commits,
     active_contributors,
-    recent_commits
+    recent_commits,
+    repositories
 } = require('./api');
 
 var express = require("express");
@@ -20,7 +21,7 @@ app.get("/top_contributors", top_contributors);
 app.get("/commits", commits);
 app.get("/active_contributors", active_contributors);
 app.get("/recent_commits", recent_commits);
-
+app.get("/repositories", repositories);
 
 app.listen(config.api.port, () => {
     INFO("Startup");
