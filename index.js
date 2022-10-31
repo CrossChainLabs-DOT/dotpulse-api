@@ -1,7 +1,7 @@
 const config = require('./config');
 const { INFO } = require('./logs');
 const { 
-    overview,
+    statistics,
     top_contributors,
     commits,
     active_contributors,
@@ -16,7 +16,7 @@ var app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/overview", overview);
+app.get("/statistics", statistics);
 app.get("/top_contributors", top_contributors);
 app.get("/commits", commits);
 app.get("/active_contributors", active_contributors);

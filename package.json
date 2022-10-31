@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "env-cmd node index.js",
+    "docs": "jsdoc2md --template docs-template.hbs --files api.js > docs.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,5 +24,9 @@
     "express": "^4.17.2",
     "pg": "^8.7.1",
     "time-stamp": "^2.2.0"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.11",
+    "jsdoc-to-markdown": "^7.1.1"
   }
 }

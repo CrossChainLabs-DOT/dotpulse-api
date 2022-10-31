@@ -1,5 +1,7 @@
+/** @module API **/
+
 const config = require('./config');
-const { INFO, ERROR, WARNING } = require('./logs');
+const { INFO, ERROR } = require('./logs');
 const { Pool } = require("pg");
 
 const pool = new Pool(config.database);
@@ -8,8 +10,16 @@ function error_response(code, msg, res) {
     res.status(code).send(msg);
 }
 
-// GET
-const get = async function (query, view, predicate, req, res, next, log, single_line) {
+/**
+ * Get the results of the query
+ * @param {string} query - The query to run.
+ * @param {string} view - The view to run the query on.
+ * @param {string} predicate - The predicate of the query, ex : ORDER BY ... .
+ * @param {object} res - The response parameter of the API.
+ * @param {string} log - The log parameter of the API.
+ * @param {boolean} single_line - Specify if the response of the API is single line or an array.
+ */
+const get = async function (query, view, predicate, res, log, single_line) {
     try {
         var result;
         if (predicate) {
@@ -38,33 +48,63 @@ const get = async function (query, view, predicate, req, res, next, log, single_
     }
 };
 
-const overview = async function (req, res, next) {
-    await  get('*', 'overview_view', '', req, res, next, 'overview', true);
+/**
+ * Statistics API
+ * returns the overall number of commits, repositories, contributors, PRs 
+ * @param {object} res - The response parameter of the API.
+ */
+const statistics = async function (req, res, next) {
+    await  get('*', 'overview_view', '', res, 'statistics', true);
 };
 
+/***
+ * Contributors API
+ * returns the list of contributors of the month based on the number of commits over the last month
+ * @param {object} res - The response parameter of the API.
+ */
 const top_contributors = async function (req, res, next) {
-    await  get('*', 'top_contributors_view', 'ORDER BY contributions DESC', req, res, next, 'top_contributors', false);
+    await  get('*', 'top_contributors_view', 'ORDER BY contributions DESC', res, 'top_contributors', false);
 };
 
+
+/**
+ * Commits API
+ * returns the total number of commits per month 
+ * @param {object} res - The response parameter of the API.
+ */
 const commits = async function (req, res, next) {
-    await  get('*', 'commits_view', 'ORDER BY commit_month', req, res, next, 'commits', false);
+    await  get('*', 'commits_view', 'ORDER BY commit_month', res, 'commits', false);
 };
 
+/**
+ * Active Contributors API
+ * returns the number of active developers for each month over the last year
+ * @param {object} res - The response parameter of the API.
+ */
 const active_contributors = async function (req, res, next) {
-    await  get('*', 'active_contributors_view', 'ORDER BY month', req, res, next, 'active_contributors', false);
+    await  get('*', 'active_contributors_view', 'ORDER BY month', res, 'active_contributors', false);
 };
 
+/**
+ * Recent commits API
+ * returns the list of recent commits across all Polkadot repositories over the last 30 days  
+ * @param {object} res - The response parameter of the API.
+ */
 const recent_commits = async function (req, res, next) {
-    await  get('*', 'recent_commits_view', 'ORDER BY commit_date DESC', req, res, next, 'recent_commits', false);
+    await  get('*', 'recent_commits_view', 'ORDER BY commit_date DESC', res, 'recent_commits', false);
 };
 
+/**
+ * Repositories API
+ * returns  returns the number of repositories for each month over the last year  
+ * @param {object} res - The response parameter of the API.
+ */
 const repositories = async function (req, res, next) {
-    await get('SELECT * FROM repositories_view ORDER BY month', res, 'repositories');
+    await get('*', 'repositories_view',   'ORDER BY month', res, 'repositories', false);
 };
-
 
 module.exports = {
-    overview,
+    statistics,
     top_contributors,
     commits,
     active_contributors,
