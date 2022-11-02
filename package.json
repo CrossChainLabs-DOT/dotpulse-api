@@ -6,7 +6,7 @@
   "scripts": {
     "start": "env-cmd node index.js",
     "docs": "jsdoc2md --template docs-template.hbs --files api.js > docs.md",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
     "time-stamp": "^2.2.0"
   },
   "devDependencies": {
+    "jest": "^29.2.2",
     "jsdoc": "^3.6.11",
     "jsdoc-to-markdown": "^7.1.1"
   }
