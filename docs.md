@@ -8,8 +8,8 @@
     * [~get(query, view, predicate, res, log, single_line)](#module_API..get)
     * [~statistics(res)](#module_API..statistics)
     * [~commits(res)](#module_API..commits)
-    * [~active_contributors(res)](#module_API..active_contributors)
-    * [~recent_commits(res)](#module_API..recent_commits)
+    * [~activeContributors(res)](#module_API..activeContributors)
+    * [~recentCommits(res)](#module_API..recentCommits)
     * [~repositories(res)](#module_API..repositories)
 
 <a name="module_API..get"></a>
@@ -52,9 +52,9 @@ returns the total number of commits per month
 | --- | --- | --- |
 | res | <code>object</code> | The response parameter of the API. |
 
-<a name="module_API..active_contributors"></a>
+<a name="module_API..activeContributors"></a>
 
-### API~active\_contributors(res)
+### API~activeContributors(res)
 Active Contributors API
 returns the number of active developers for each month over the last year
 
@@ -64,9 +64,9 @@ returns the number of active developers for each month over the last year
 | --- | --- | --- |
 | res | <code>object</code> | The response parameter of the API. |
 
-<a name="module_API..recent_commits"></a>
+<a name="module_API..recentCommits"></a>
 
-### API~recent\_commits(res)
+### API~recentCommits(res)
 Recent commits API
 returns the list of recent commits across all Polkadot repositories over the last 30 days
 
