@@ -15,30 +15,30 @@
 <a name="module_API..get"></a>
 
 ### API~get(query, view, predicate, res, log, single_line)
-Get the results of the query
+Get the results of a query
 
 **Kind**: inner method of [<code>API</code>](#module_API)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| query | <code>string</code> | The query to run. |
-| view | <code>string</code> | The view to run the query on. |
-| predicate | <code>string</code> | The predicate of the query, ex : ORDER BY ... . |
-| res | <code>object</code> | The response parameter of the API. |
-| log | <code>string</code> | The log parameter of the API. |
-| single_line | <code>boolean</code> | Specify if the response of the API is single line or an array. |
+| query | <code>string</code> | the query to run |
+| view | <code>string</code> | the view to run the query on |
+| predicate | <code>string</code> | the predicate of the query, ex : ORDER BY ... |
+| res | <code>object</code> | the response parameter of the API |
+| log | <code>string</code> | the log parameter of the API |
+| single_line | <code>boolean</code> | specify if the response of the API is a single line or an array |
 
 <a name="module_API..statistics"></a>
 
 ### API~statistics(res)
 Statistics API
-returns the overall number of commits, repositories, contributors, PRs
+returns the overall number of commits, repositories, contributors and PRs
 
 **Kind**: inner method of [<code>API</code>](#module_API)  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| res | <code>object</code> | The response parameter of the API. |
+| res | <code>object</code> | the parameter that has the return result of the API |
 
 <a name="module_API..commits"></a>
 
@@ -50,7 +50,7 @@ returns the total number of commits per month
 
 | Param | Type | Description |
 | --- | --- | --- |
-| res | <code>object</code> | The response parameter of the API. |
+| res | <code>object</code> | the parameter that has the return result of the API |
 
 <a name="module_API..activeContributors"></a>
 
@@ -62,7 +62,7 @@ returns the number of active developers for each month over the last year
 
 | Param | Type | Description |
 | --- | --- | --- |
-| res | <code>object</code> | The response parameter of the API. |
+| res | <code>object</code> | the parameter that has the return result of the API |
 
 <a name="module_API..recentCommits"></a>
 
@@ -74,7 +74,7 @@ returns the list of recent commits across all Polkadot repositories over the las
 
 | Param | Type | Description |
 | --- | --- | --- |
-| res | <code>object</code> | The response parameter of the API. |
+| res | <code>object</code> | the parameter that has the return result of the API |
 
 <a name="module_API..repositories"></a>
 
@@ -86,7 +86,7 @@ returns  returns the number of repositories for each month over the last year
 
 | Param | Type | Description |
 | --- | --- | --- |
-| res | <code>object</code> | The response parameter of the API. |
+| res | <code>object</code> | the response parameter of the API. |
 
 
 * * *
