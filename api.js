@@ -139,6 +139,22 @@ const repositories = async function (req, res, next) {
   );
 };
 
+/**
+ * Activity API
+ * returns the number of active developers and repos for each month over the last year
+ * @param {object} res - the parameter that has the return result of the API
+ */
+ const activity = async function (req, res, next) {
+  await get(
+    "*",
+    "activity_view",
+    "ORDER BY month",
+    res,
+    "activity",
+    false
+  );
+};
+
 module.exports = {
   statistics,
   topContributors,
@@ -146,4 +162,5 @@ module.exports = {
   activeContributors,
   recentCommits,
   repositories,
+  activity,
 };

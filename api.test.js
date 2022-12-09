@@ -33,6 +33,7 @@ const {
   activeContributors,
   recentCommits,
   repositories,
+  activity,
 } = require("./api");
 
 describe("API", () => {
@@ -653,6 +654,47 @@ describe("API", () => {
       { month: "2022-06-30T00:00:00.000Z", repositories: "300" },
       { month: "2022-07-31T00:00:00.000Z", repositories: "350" },
       { month: "2022-08-31T00:00:00.000Z", repositories: "400" },
+    ]);
+  });
+
+  test("activity", async () => {
+    pool.query.mockResolvedValue({
+      rows: [
+        { month: "2021-06-30T00:00:00.000Z", active_contributors: "150", active_repos: "20" },
+        { month: "2021-08-31T00:00:00.000Z", active_contributors: "160", active_repos: "20" },
+        { month: "2021-09-30T00:00:00.000Z", active_contributors: "170", active_repos: "20" },
+        { month: "2021-10-31T22:00:00.000Z", active_contributors: "180", active_repos: "20" },
+        { month: "2021-11-30T22:00:00.000Z", active_contributors: "190", active_repos: "20" },
+        { month: "2021-12-31T22:00:00.000Z", active_contributors: "200", active_repos: "20" },
+        { month: "2022-01-31T22:00:00.000Z", active_contributors: "220", active_repos: "20" },
+        { month: "2022-02-28T22:00:00.000Z", active_contributors: "240", active_repos: "20" },
+        { month: "2022-03-31T00:00:00.000Z", active_contributors: "260", active_repos: "20" },
+        { month: "2022-04-30T00:00:00.000Z", active_contributors: "280", active_repos: "20" },
+        { month: "2022-06-30T00:00:00.000Z", active_contributors: "300", active_repos: "20" },
+        { month: "2022-07-31T00:00:00.000Z", active_contributors: "350", active_repos: "20" },
+        { month: "2022-08-31T00:00:00.000Z", active_contributors: "400", active_repos: "20" },
+      ],
+    });
+
+    const req = mockRequest();
+    const res = mockResponse();
+
+    await repositories(req, res);
+
+    expect(res.json).toHaveBeenCalledWith([
+      { month: "2021-06-30T00:00:00.000Z", active_contributors: "150", active_repos: "20" },
+      { month: "2021-08-31T00:00:00.000Z", active_contributors: "160", active_repos: "20" },
+      { month: "2021-09-30T00:00:00.000Z", active_contributors: "170", active_repos: "20" },
+      { month: "2021-10-31T22:00:00.000Z", active_contributors: "180", active_repos: "20" },
+      { month: "2021-11-30T22:00:00.000Z", active_contributors: "190", active_repos: "20" },
+      { month: "2021-12-31T22:00:00.000Z", active_contributors: "200", active_repos: "20" },
+      { month: "2022-01-31T22:00:00.000Z", active_contributors: "220", active_repos: "20" },
+      { month: "2022-02-28T22:00:00.000Z", active_contributors: "240", active_repos: "20" },
+      { month: "2022-03-31T00:00:00.000Z", active_contributors: "260", active_repos: "20" },
+      { month: "2022-04-30T00:00:00.000Z", active_contributors: "280", active_repos: "20" },
+      { month: "2022-06-30T00:00:00.000Z", active_contributors: "300", active_repos: "20" },
+      { month: "2022-07-31T00:00:00.000Z", active_contributors: "350", active_repos: "20" },
+      { month: "2022-08-31T00:00:00.000Z", active_contributors: "400", active_repos: "20" },
     ]);
   });
 });

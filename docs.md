@@ -11,6 +11,7 @@
     * [~activeContributors(res)](#module_API..activeContributors)
     * [~recentCommits(res)](#module_API..recentCommits)
     * [~repositories(res)](#module_API..repositories)
+    * [~activity(res)](#module_API..activity)
 
 <a name="module_API..get"></a>
 
@@ -87,6 +88,18 @@ returns  returns the number of repositories for each month over the last year
 | Param | Type | Description |
 | --- | --- | --- |
 | res | <code>object</code> | the response parameter of the API. |
+
+<a name="module_API..activity"></a>
+
+### API~activity(res)
+Activity API
+returns the number of active developers and repos for each month over the last year
+
+**Kind**: inner method of [<code>API</code>](#module_API)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| res | <code>object</code> | the parameter that has the return result of the API |
 
 
 * * *
