@@ -116,7 +116,7 @@ const recentCommits = async function (req, res, next) {
   await get(
     "*",
     "recent_commits_view",
-    "ORDER BY commit_date DESC",
+    "ORDER BY commit_date DESC LIMIT 1000",
     res,
     "recentCommits",
     false
