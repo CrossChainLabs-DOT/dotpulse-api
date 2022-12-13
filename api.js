@@ -125,7 +125,7 @@ const recentCommits = async function (req, res, next) {
 
 /**
  * Repositories API
- * returns  returns the number of repositories for each month over the last year
+ * returns the number of repositories for each month over the last year
  * @param {object} res - the response parameter of the API.
  */
 const repositories = async function (req, res, next) {
@@ -141,7 +141,7 @@ const repositories = async function (req, res, next) {
 
 /**
  * Activity API
- * returns the number of active developers and repos for each month over the last year
+ * returns the number of active developers and active repositories for each month over the last year
  * @param {object} res - the parameter that has the return result of the API
  */
  const activity = async function (req, res, next) {

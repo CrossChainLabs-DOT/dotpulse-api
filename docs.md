@@ -81,7 +81,7 @@ returns the list of recent commits across all Polkadot repositories over the las
 
 ### API~repositories(res)
 Repositories API
-returns  returns the number of repositories for each month over the last year
+returns the number of repositories for each month over the last year
 
 **Kind**: inner method of [<code>API</code>](#module_API)  
 
@@ -93,7 +93,7 @@ returns  returns the number of repositories for each month over the last year
 
 ### API~activity(res)
 Activity API
-returns the number of active developers and repos for each month over the last year
+returns the number of active developers and active repositories for each month over the last year
 
 **Kind**: inner method of [<code>API</code>](#module_API)  
 
