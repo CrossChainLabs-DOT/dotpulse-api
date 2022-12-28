@@ -12,11 +12,14 @@
 ```
     git clone https://github.com/CrossChainLabs-DOT/dotpulse-scraper.git
     git clone https://github.com/CrossChainLabs-DOT/dotpulse-api.git
+    git clone https://github.com/CrossChainLabs-DOT/dotpulse-webapp.git
     
     cd dotpulse-api  
-    npm i 
+    npm i
+    cd ../dotpulse-webapp
+    npm i
     cd ../dotpulse-scraper
-    npm i 
+    npm i
 
     cp .env.sample .env
     # update GITHUB_TOKEN=
